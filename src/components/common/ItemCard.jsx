@@ -1,7 +1,7 @@
 import React from 'react';
 import { Edit2, Trash2, Eye, Star, Clock, Video, Calendar, User, CheckCircle, XCircle } from 'lucide-react'; // Tambahkan User, CheckCircle, XCircle
 
-// Enhanced Pattern Definitions
+// Enhanced Pattern Definitions0
 const backgroundPatterns = {
   'pattern-1': `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M20 20l10-10v20zM10 10l10 10H0z'/%3E%3C/g%3E%3C/svg%3E")`,
   'pattern-2': `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.15'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3Ccircle cx='0' cy='30' r='4'/%3E%3Ccircle cx='60' cy='30' r='4'/%3E%3Ccircle cx='30' cy='0' r='4'/%3E%3Ccircle cx='30' cy='60' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,

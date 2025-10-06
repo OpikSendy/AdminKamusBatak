@@ -1,9 +1,20 @@
+// src/config/menuItems.js
 import {
   Users, Home, Shirt, Utensils, Sword, Music,
-  Mountain, TreePine, MessageSquareText
+  Mountain, TreePine, MessageSquareText, BarChart3, Clock
 } from 'lucide-react';
 
 export const menuItems = [
+  {
+    id: 'validasi-user',
+    label: 'Validasi Data User',
+    icon: Clock,
+    color: 'bg-gradient-to-br from-orange-500 via-red-600 to-pink-700',
+    bgPattern: 'pattern-10',
+    description: 'Validasi data yang dikirim oleh pengguna mobile',
+    accentColor: 'orange',
+    isSpecialModule: true, 
+  },
   {
     id: 'suku',
     table: 'suku',
@@ -15,7 +26,7 @@ export const menuItems = [
     accentColor: 'red',
     fields: [
       { name: 'nama', type: 'text', label: 'Nama Suku', required: true },
-      { name: 'foto', type: 'file', label: 'Foto Suku', required: true } // Foto selalu required jika di DB TEXT NOT NULL
+      { name: 'foto', type: 'file', label: 'Foto Suku', required: true }
     ]
   },
   {
@@ -52,7 +63,7 @@ export const menuItems = [
   },
   {
     id: 'rumah',
-    table: 'rumah_adat', // Perhatikan, di DB Anda 'rumah_adat', di menuItems Anda 'rumah'
+    table: 'rumah_adat',
     label: 'Rumah Adat',
     icon: Home,
     color: 'bg-gradient-to-br from-amber-500 via-orange-600 to-red-700',
@@ -146,7 +157,7 @@ export const menuItems = [
       { name: 'pertahanan', type: 'boolean_text', label: 'Untuk Pertahanan?', required: true },
       { name: 'perburuan', type: 'boolean_text', label: 'Untuk Perburuan?', required: true },
       { name: 'seremonial', type: 'boolean_text', label: 'Untuk Seremonial?', required: true }
-     ]
+    ]
   },
   {
     id: 'tarian',
@@ -171,7 +182,7 @@ export const menuItems = [
       { name: 'video', type: 'text', label: 'URL Video', required: true },
       { name: 'kategori', type: 'text', label: 'Kategori', required: true },
       { name: 'durasi', type: 'text', label: 'Durasi', required: true },
-      { name: 'event', type: 'textarea', label: 'Event Penggunaan', required: true } // Sesuaikan label
+      { name: 'event', type: 'textarea', label: 'Event Penggunaan', required: true }
     ]
   },
   {
@@ -180,16 +191,27 @@ export const menuItems = [
     label: 'Komentar',
     icon: MessageSquareText,
     color: 'bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-700',
-    bgPattern: 'pattern-9', 
+    bgPattern: 'pattern-9',
     description: 'Kelola Komentar Pengguna',
-    accentColor: 'cyan', 
+    accentColor: 'cyan',
     fields: [
       { name: 'item_id', label: 'ID Item', type: 'text', required: true, editable: false },
       { name: 'item_type', label: 'Item yang Dikomentari', type: 'text', required: true, editable: false },
       { name: 'nama_anonim', label: 'Nama Anonim', type: 'text', required: false, editable: false },
       { name: 'komentar_text', label: 'Isi Komentar', type: 'textarea', required: true, editable: false },
+      { name: 'foto_komentar', label: 'Foto Komentar', type: 'file', required: false, editable: false },
       { name: 'tanggal_komentar', label: 'Tanggal Komentar', type: 'text', required: false, editable: false },
       { name: 'is_approved', label: 'Disetujui', type: 'checkbox', required: false },
     ],
+  },
+  {
+    id: 'laporan-komentar',
+    label: 'Laporan Komentar',
+    icon: BarChart3,
+    color: 'bg-gradient-to-br from-purple-500 via-pink-600 to-red-700',
+    bgPattern: 'pattern-10',
+    description: 'Rekap dan statistik komentar',
+    accentColor: 'purple',
+    isSpecialModule: true,
   },
 ];
