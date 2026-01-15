@@ -70,34 +70,36 @@ const ValidationPanel = ({ setActiveMenu }) => {
   };
 
   const handleApprove = async (table, id) => {
-    if (!confirm('Apakah Anda yakin ingin menyetujui data ini?')) return;
+  const result = await confirm('Apakah Anda yakin ingin menyetujui data ini?');
+  if (!result) return;
 
-    try {
-      await validationService.approveData(table, id);
-      alert('Data berhasil disetujui!');
-      await loadPendingData(table);
-      await loadPendingCounts();
-      setIsModalOpen(false);
-    } catch (error) {
-      console.error('Error approving data:', error);
-      alert('Gagal menyetujui data: ' + error.message);
-    }
-  };
+  try {
+    await validationService.approveData(table, id);
+    alert('Data berhasil disetujui!');
+    await loadPendingData(table);
+    await loadPendingCounts();
+    setIsModalOpen(false);
+  } catch (error) {
+    console.error('Error approving data:', error);
+    alert('Gagal menyetujui data: ' + error.message);
+  }
+};
 
-  const handleReject = async (table, id) => {
-    if (!confirm('Apakah Anda yakin ingin menolak dan menghapus data ini?')) return;
+const handleReject = async (table, id) => {
+  const result = await confirm('Apakah Anda yakin ingin menolak dan menghapus data ini?');
+  if (!result) return;
 
-    try {
-      await validationService.rejectData(table, id);
-      alert('Data berhasil ditolak dan dihapus!');
-      await loadPendingData(table);
-      await loadPendingCounts();
-      setIsModalOpen(false);
-    } catch (error) {
-      console.error('Error rejecting data:', error);
-      alert('Gagal menolak data: ' + error.message);
-    }
-  };
+  try {
+    await validationService.rejectData(table, id);
+    alert('Data berhasil ditolak dan dihapus!');
+    await loadPendingData(table);
+    await loadPendingCounts();
+    setIsModalOpen(false);
+  } catch (error) {
+    console.error('Error rejecting data:', error);
+    alert('Gagal menolak data: ' + error.message);
+  }
+};
 
   const openDetailModal = (item) => {
     setSelectedItem(item);

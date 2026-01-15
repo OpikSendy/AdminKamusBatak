@@ -106,6 +106,7 @@ const BatakAdminDashboard = () => {
     const commentData = data["komentar"] || [];
     return <CommentReport comments={commentData} setActiveMenu={setActiveMenu} />;
   }
+  
 
   // Handle Submit Form (Add/Edit)
   const handleFormSubmit = async (submitData) => {
@@ -151,9 +152,8 @@ const BatakAdminDashboard = () => {
 
   // Handle Delete
   const handleDelete = async (item) => {
-    if (!confirm(`Apakah Anda yakin ingin menghapus ${item.nama || 'data ini'}?`)) {
-      return;
-    }
+    const result = await confirm(`Apakah Anda yakin ingin menghapus ${item.nama || 'data ini'}?`);
+    if (!result) return;
 
     try {
       await supabaseService.deleteData(activeMenuItem.table, item.id);
